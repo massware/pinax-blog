@@ -100,9 +100,9 @@ setup(
         "django-appconf>=1.0.1",
         "markdown==2.6.11",
         "pillow>=3.0.0",
-        "pinax-images>=3.0.1",
         "pygments>=2.0.2",
         "pytz>=2016.6.1",
+        'pinax-images @ git+https://github.com/massware/pinax-blog@master#egg=pinax-images',
     ],
     tests_require=[
         "django-bootstrap-form>=3.0.0",
