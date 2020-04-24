@@ -1,8 +1,8 @@
 from django import forms
 from django.utils import timezone
-from django.utils.functional import curry
 from django.utils.text import slugify
 from django.utils.translation import ugettext_lazy as _
+from functools import partial
 
 from pinax.images.models import ImageSet
 
@@ -23,6 +23,8 @@ FIELDS = [
     "state"
 ]
 
+def curry(func, *a, **kw):
+    return partial(func, *a, **kw)
 
 class PostFormMixin(object):
 

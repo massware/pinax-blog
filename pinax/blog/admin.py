@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils import timezone
-from django.utils.functional import curry
 from django.utils.translation import ugettext_lazy as _
+from functools import partial
 
 from pinax.images.admin import ImageInline
 from pinax.images.models import ImageSet
@@ -28,6 +28,8 @@ def make_published(modeladmin, request, queryset):
 
 make_published.short_description = _("Publish selected posts")
 
+def curry(func, *a, **kw):
+    return partial(func, *a, **kw)
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ["title", "state", "section", "published", "show_secret_share_url"]
